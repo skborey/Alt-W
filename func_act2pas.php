@@ -1,7 +1,7 @@
 <?php
 function toPassive($sent, $v1Idx) {
     require('config.php');
-    $textdesc = $sent;    
+    $textdesc = $sent;
     $sentence = explode(' ', $sent);
     $countSentence = count($sentence);
     $sentence_pos = 0;
@@ -43,39 +43,32 @@ function toPassive($sent, $v1Idx) {
     $i = $sentence_pos;
     while ($i < $fullStopPosition) {
         // Subject section        
-        $sql = "SELECT subject,object,verb_to_be FROM pronouns WHERE subject='$sentence[$sentence_pos]'";        
+        $sql = "SELECT subject,object,verb_to_be FROM pronouns WHERE subject='$sentence[$sentence_pos]'";
         $result = $link->query($sql);
         if ($result->num_rows == 0) {
             // First word is not I,You,We,They,He,She,It (perhaps article A, An, The or numbers as Two, Three)
             // Find subject on second word
             if ($sentence[$sentence_pos] == 'A' || $sentence[$sentence_pos] == 'An' || $sentence[$sentence_pos] == 'The') {
-                
                 $subjPos = 1;
-                //$subjPassive = lcfirst($sentence[$sentence_pos]) . ' ' . $sentence[$sentence_pos + 1];
                 $subjPassive = lcfirst($sentence[$sentence_pos]);
-                while($subjPos < $v1Idx)
-                { 
-                    $subjPassive .= ' '.$sentence[$sentence_pos + $subjPos];                        
+                while ($subjPos < $v1Idx) {
+                    $subjPassive .= ' ' . $sentence[$sentence_pos + $subjPos];
                     $subjPos++;
                 }
-                
             } else {
-                
                 $subjPos = 1;
-                $subjPassive = ucfirst($sentence[$sentence_pos]);                
+                $subjPassive = ucfirst($sentence[$sentence_pos]);
 
-                while($subjPos < $v1Idx)
-                { 
-                    $subjPassive .= ' '.$sentence[$sentence_pos + $subjPos];                        
+                while ($subjPos < $v1Idx) {
+                    $subjPassive .= ' ' . $sentence[$sentence_pos + $subjPos];
                     $subjPos++;
                 }
-                //$verbAfterNum = $sentence[$sentence_pos + 1];
             }
         } else {
             // Found I,You,We,They,He,She,It
-            while ($row = $result->fetch_assoc()) {                
+            while ($row = $result->fetch_assoc()) {
                 $subjPassive = $row['object'];
-                $verb_to_be = $row['verb_to_be'] . ' ';                
+                $verb_to_be = $row['verb_to_be'] . ' ';
             }
             $subjPos = 1;
         }
@@ -114,13 +107,7 @@ function toPassive($sent, $v1Idx) {
                     $result2 = $link->query($sql2);
                     if ($result2->num_rows > 0) {
                         return "Not found verb";
-                        //return null;
                         // Found past form
-//                                $verbPos = $j;
-//                                while ($row2 = $result2->fetch_assoc()) {
-//                                    $verb = $row2['verb_two'];
-//                                }
-//                                $foundVerb = 'Yes';
                         //Past Tense
                     } else {
                         $sql2 = "SELECT verb_one,verb_two,verb_three,verb_s,verb_ing FROM verbs WHERE verb_s='$sentence[$j]'";
@@ -157,7 +144,7 @@ function toPassive($sent, $v1Idx) {
         // Find noun
         $obj = rtrim($sentence[$fullStopPosition], '.');
         $subj = '';
-        $sql = "SELECT subject,object,verb_to_be FROM pronouns WHERE object='$obj'";        
+        $sql = "SELECT subject,object,verb_to_be FROM pronouns WHERE object='$obj'";
         $result = $link->query($sql);
         if ($result->num_rows > 0) {
             // Found me,you,us,them,him,her,it
@@ -166,11 +153,6 @@ function toPassive($sent, $v1Idx) {
             }
         }
         $noun = '';
-        /*
-            if ($subj<>'') {
-            $noun=$subj.' ';
-            }
-            */
         for ($k = $verbPos + 1; $k <= $fullStopPosition; $k++) {
             $noun .= $sentence[$k] . ' ';
         }
@@ -181,13 +163,6 @@ function toPassive($sent, $v1Idx) {
                 $sentence[$verbPos + 1] == 'this' ||
                 $sentence[$verbPos + 1] == 'that') {
             $verb_to_be = ' is ';
-            /*
-                echo $foundVerbCan.'<br>';
-                echo $foundVerbMust.'<br>';
-                echo $foundVerbMay.'<br>';
-                echo $foundVerbMight.'<br>';
-                echo $foundVerbShould.'<br>';
-                */
             if ($foundVerbCan == 'Found') {
                 if ($foundNot == 'Found') {
                     $verb = ' can not be ' . $verb;
@@ -237,7 +212,7 @@ function toPassive($sent, $v1Idx) {
                     }
                 }
             }
-            $finalResult = ucfirst($noun) . $verb_to_be . $verb . ' by ' . $subjPassive . ".";            
+            $finalResult = ucfirst($noun) . $verb_to_be . $verb . ' by ' . $subjPassive . ".";
         } else {
             if (substr($noun, -1) == 's') {
                 // Phural nouns
@@ -254,7 +229,7 @@ function toPassive($sent, $v1Idx) {
             }
         }
         $i = $i + $fullStopPosition;
-    }    
+    }
     return $finalResult;
 }
 ?>

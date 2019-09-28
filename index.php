@@ -1,19 +1,5 @@
-<?php
-session_start();
-foreach ($_SESSION as $key => $value) {
-    if ($key == 'input')
-        continue;
-    unset($_SESSION[$key]);
-}
-print_r($_SESSION, TRUE);
-?>
-
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-    <!--<![endif]-->
+<html lang="en">    
     <head>
         <title>Alternative Word Suggestion System for English Writings</title>
         <meta charset="utf-8">
@@ -87,7 +73,7 @@ print_r($_SESSION, TRUE);
                                         <li>
                                             <a href="index.php">Home</a>
                                         </li>
-                                        
+
                                         <li>
                                             <a href="publication_NCIT.php">Achievements</a>
                                         </li>
@@ -139,7 +125,6 @@ print_r($_SESSION, TRUE);
                                                     <img data-u="image" src="assets/im/How1.png">
                                                     <div data-u="thumb">
                                                         <img class="i" src="assets/img/slider/thumb-01.jpg">
-<!--                                                        <div class="t">Step 0ne:</div>-->
                                                         <div class="t">Input a file</div>
                                                     </div>
                                                 </div>
@@ -147,7 +132,6 @@ print_r($_SESSION, TRUE);
                                                     <img data-u="image" src="assets/im/How2.png">
                                                     <div data-u="thumb">
                                                         <img class="i" src="assets/img/slider/thumb-02.jpg">
-<!--                                                        <div class="t">Step Two:</div>-->
                                                         <div class="t">Modify the result</div>
                                                     </div>
                                                 </div>
@@ -155,7 +139,6 @@ print_r($_SESSION, TRUE);
                                                     <img data-u="image" src="assets/im/How3.png">
                                                     <div data-u="thumb">
                                                         <img class="i" src="assets/img/slider/thumb-03.jpg">
-<!--                                                        <div class="t">Step Three:</div>-->
                                                         <div class="t">Export the result</div>
                                                     </div>
                                                 </div>
@@ -163,7 +146,6 @@ print_r($_SESSION, TRUE);
                                                     <img data-u="image" src="assets/im/How4.png">
                                                     <div data-u="thumb">
                                                         <img class="i" src="assets/img/slider/thumb-04.jpg">
-<!--                                                        <div class="t">Step Four:</div>-->
                                                         <div class="t">Evaluate the system</div>
                                                     </div>
                                                 </div>
@@ -217,8 +199,8 @@ print_r($_SESSION, TRUE);
                                     <div id="home" class="tab-pane fade in active">
                                         <div class="col-md-6">
                                             <p></p>
-                                            <form method="post" action="loading.php" id='myForm'><br>
-                                                <div action="loading.php" class="dropzone" id="my-dropzone" style="padding: 10px; text-align: center;">
+                                            <form method="post" action="temp_upload.php" id='myForm'><br>
+                                                <div action="temp_upload.php" class="dropzone" id="my-dropzone" style="padding: 10px; text-align: center;">
                                                     <section class="wrap"><br>
                                                         <div class="dz-message needsclick">
                                                             <div class="dropzone-image">
@@ -259,10 +241,10 @@ print_r($_SESSION, TRUE);
                                         </div>
                                         <br><br><br><br>
                                         <div class="col-md-6"><center> 
-                                            <p style="color: red; font-size: 14px;" id="note">
-                                                &nbsp;<b>NOTE:</b> 
-                                                You can choose any option below or choose both options.
-                                            </p></center>
+                                                <p style="color: red; font-size: 14px;" id="note">
+                                                    &nbsp;<b>NOTE:</b> 
+                                                    You can choose any option below or choose both options.
+                                                </p></center>
                                         </div>
                                         <div class="col-md-6">                                        
                                             <center>                                                
@@ -302,7 +284,7 @@ print_r($_SESSION, TRUE);
                                                     <br>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     - The system support uploaded files up to 1MB.
-                                                                                                        
+
                                                     <br>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     &nbsp;&nbsp;
@@ -319,37 +301,37 @@ print_r($_SESSION, TRUE);
                             <div id="footermenu" class="container">
                                 <div class="row">
                                     <div class="col-md-12">
-                                <div class="col-md-9">
-                                    <p>
-                                        <style media="screen">
-                                            a,
-                                            u {
-                                                text-decoration: none;
-                                            }
+                                        <div class="col-md-9">
+                                            <p>
+                                            <style media="screen">
+                                                a,
+                                                u {
+                                                    text-decoration: none;
+                                                }
 
-                                            a {
-                                                text-decoration: none !important;
-                                                font-size: 12px;
-                                            }
-                                        </style>
-                                        <p></p>
-                                        <a href="index.php"> 
-                                            <font style="color:white;">Copyright &copy; 2017 </font>
-                                            <b>Alternative Word Suggestion System for English Writings Project. 
-                                                <font style="color:white;">Version </font>1.0.3
-                                            </b>
+                                                a {
+                                                    text-decoration: none !important;
+                                                    font-size: 12px;
+                                                }
+                                            </style>
+                                            <p></p>
+                                            <a href="index.php"> 
+                                                <font style="color:white;">Copyright &copy; 2017 </font>
+                                                <b>Alternative Word Suggestion System for English Writings Project. 
+                                                    <font style="color:white;">Version </font>1.0.3
+                                                </b>
+                                                <br>
+                                                <font style="color:white;">Developed by </font>
+                                                <b> Suphachok Noopan, Jirayu Chinnawong, Borey Sok.</b>
+                                                <font style="color:white;">Inspired by </font><b> Dr. Nattapong Tongtep.</b>
+                                            </a>
                                             <br>
-                                            <font style="color:white;">Developed by </font>
-                                            <b> Suphachok Noopan, Jirayu Chinnawong, Borey Sok.</b>
-                                            <font style="color:white;">Inspired by </font><b> Dr. Nattapong Tongtep.</b>
-                                        </a>
-                                        <br>
-                                        <a href="http://www.computing.psu.ac.th/" target="_blank">
-                                            <b>College of Computing, 
-                                                Prince of Songkla University, Phuket Campus.</b>
-                                        </a>
-                                    </p>
-                                </div>
+                                            <a href="http://www.computing.psu.ac.th/" target="_blank">
+                                                <b>College of Computing, 
+                                                    Prince of Songkla University, Phuket Campus.</b>
+                                            </a>
+                                            </p>
+                                        </div>
                                         <div class="col-md-3">
                                             <br>
                                             <a href="index.php"><img src="assets\img\shortkey.png" alt="Alt+w"></a>
@@ -369,7 +351,14 @@ print_r($_SESSION, TRUE);
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
+        <form method="post" action="loading.php" id="btn2submit">
+            <input type="text" name="title" id="title2submit" value="" hidden>
+            <input type="text" name="content" id="content2submit" value="" hidden>
+            <input type="text" name="upload-type" id="upload-type2submit" value="" hidden>
+            <input type="text" name="toPassive" id="toPassive2submit" value="" hidden>
+            <input type="text" name="toActive" id="toActive2submit" value="" hidden>
+        </form>
         <script type="text/javascript" src="assets/js/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="assets/js/bootstrap.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="assets/js/scripts.js"></script>
@@ -383,137 +372,158 @@ print_r($_SESSION, TRUE);
         <script type="text/javascript" src="assets/js/jscontrol.js"></script>
         <script type="text/javascript" src="assets/js/slider.js"></script>
         <script type="text/javascript" src="assets/js/dropzone.js"></script>
-        <?php
-        if (isset($_SESSION['input']) && $_SESSION['input'] == 'empty') {
-            echo "<script type='text/javascript'>
-                            window.location.hash = '#alert-empty-input';                        
-                            $('#alert-empty-input').removeAttr('hidden');
-                        </script>
-                        ";
-        } else if (isset($_SESSION['input']) && $_SESSION['input'] == 'both') {
-            echo "<script type='text/javascript'>              
-                            window.location.hash = '#alert-both-input';          
-                            $('#alert-both-input').removeAttr('hidden');
-                        </script>
-                        ";
-        } else if (isset($_SESSION['input']) && $_SESSION['input'] == 'title') {
-            echo "<script type='text/javascript'>  
-                        window.location.hash = '#alert-title-input';                      
-                        $('#alert-title-input').removeAttr('hidden');
-                        </script>
-                        ";
-        } else if (isset($_SESSION['input']) && $_SESSION['input'] == 'description') {
-            echo "<script type='text/javascript'> 
-                        window.location.hash = '#alert-description-input';                       
-                        $('#alert-description-input').removeAttr('hidden');
-                        </script>
-                ";
-        }
-        session_destroy();
-        ?>
         <script type="text/javascript">
-            function title_input() {
-                var tit_ = $('#title').val();
-                if (tit_.replace(/\s+/g, '').length == 0)
-                    $('#title-input').val('0');
-                else
-                    $('#title-input').val('1');
-            }
+                                                                                        function title_input() {
+                                                                                            var tit_ = $('#title').val();
+                                                                                            if (tit_.replace(/\s+/g, '').length == 0) {
+                                                                                                $('#title-input').val('0');
+                                                                                            } else {
+                                                                                                $('#title-input').val('1');
+                                                                                            }
+                                                                                        }
 
-            function description_input() {
-                var dec_ = $('#description').val();
-                if (dec_.replace(/\s+/g, '').length == 0)
-                    $('#description-input').val('0');
-                else
-                    $('#description-input').val('1');
-            }
-            Dropzone.options.myDropzone = {
-                autoProcessQueue: false,
-                parallelUploads: 2,
-                uploadMultiple: false,
-                maxFilesize: 1, // MB
-                maxFiles: 1,
-                acceptedFiles: ".txt",
-                addRemoveLinks: true,
-                init: function () {
-                    var submitButton = document.querySelector("#finish")
-                    myDropzone = this;
-                    submitButton.addEventListener("click", function (e) {
-                        //  e.preventDefault();                        
-                        
-                        if($("#toPassiveBox").is(':checked')) $('#toPassive').val('checked');
-                        if($("#toActiveBox").is(':checked')) $('#toActive').val('checked');
-                        
-                        
-                        myDropzone.processQueue();
-                    });
-                    this.on("removedfile", function (file) {
-                        //                            x = confirm('Do you want to delete?');
-                        //                            if (!x) {
-                        //                                return false;
-                        //                            }
-                        // ********************************
-                        $('#file-input').val('0');
-                        // ********************************
-                    });
-                    this.on("addedfile", function (file) {
-                        // ********************************
-                        $('#file-input').val('1');
-                        // ********************************
-                        var ext = file.name.split('.').pop();
-                        if (ext == "txt") {
-                            //$(file.previewElement).find(".dz-image img").attr("src", "images/1487495563_txts.png");
-                        }
-                    });
-                    this.on("sending", function (file, xhr, formData) {
-                        formData.append("action", "value");
-                    });
-                    this.on('success', function (d, r) {
-                        //$("#pics").attr('value', r);
-                    });
-                    this.on("queuecomplete", function (file) {
-                        //alert("File big size");
-                        //$("#myForm").off('submit').submit();
-                    });
-                    this.on("maxfilesexceeded", function (file) {
-                        //alert("No more files please!");
-                        $('#mydiv').replaceWith('<div id="mydiv" class="alert alert-danger alert-dismissable fade in">\n\
+                                                                                        function description_input() {
+                                                                                            var dec_ = $('#description').val();
+                                                                                            if (dec_.replace(/\s+/g, '').length == 0) {
+                                                                                                $('#description-input').val('0');
+                                                                                            } else {
+                                                                                                $('#description-input').val('1');
+                                                                                            }
+                                                                                        }
+                                                                                        Dropzone.options.myDropzone = {
+                                                                                            autoProcessQueue: false,
+                                                                                            parallelUploads: 2,
+                                                                                            uploadMultiple: false,
+                                                                                            maxFilesize: 1, //1 MB
+                                                                                            maxFiles: 1,
+                                                                                            acceptedFiles: ".txt",
+                                                                                            addRemoveLinks: true,
+                                                                                            init: function () {
+                                                                                                var submitButton = document.querySelector("#finish")
+                                                                                                myDropzone = this;
+                                                                                                submitButton.addEventListener("click", function (e) {
+
+                                                                                                    var title = "", content = "", toPassive = "", toActive = "";
+
+                                                                                                    //Prevent submit button from POST action
+                                                                                                    e.preventDefault();
+
+                                                                                                    if (myDropzone.processQueue() === "NO_FILE") {
+
+                                                                                                        title = $("#title").val();
+                                                                                                        content = $("#description").val();
+
+                                                                                                        if (title === "" && content === "") {
+                                                                                                            window.location.hash = '#alert-empty-input';
+                                                                                                            $('#alert-empty-input').removeAttr('hidden');
+                                                                                                        } else if (title === "") {
+                                                                                                            window.location.hash = '#alert-title-input';
+                                                                                                            $('#alert-title-input').removeAttr('hidden');
+                                                                                                        } else if (content === "") {
+                                                                                                            window.location.hash = '#alert-description-input';
+                                                                                                            $('#alert-description-input').removeAttr('hidden');
+                                                                                                        } else { //Input content via Text-base
+                                                                                                            //Post to loading [title] && [content]
+                                                                                                            toPassive = $("#toPassiveBox").is(':checked') ? "checked" : "unchecked";
+                                                                                                            toActive = $("#toActiveBox").is(':checked') ? "checked" : "unchecked";
+                                                                                                            $("#title2submit").val(title);
+                                                                                                            $("#content2submit").val(content);
+                                                                                                            $("#upload-type2submit").val("Text-Base");
+                                                                                                            $("#toPassive2submit").val(toPassive);
+                                                                                                            $("#toActive2submit").val(toActive);
+                                                                                                            $("#btn2submit").submit();
+                                                                                                        }
+                                                                                                    }
+                                                                                                });
+
+                                                                                                this.on("removedfile", function (file) {
+                                                                                                    $('#file-input').val('0');
+                                                                                                });
+
+                                                                                                this.on("addedfile", function (file) {
+                                                                                                    $('#file-input').val('1');
+                                                                                                    var ext = file.name.split('.').pop();
+                                                                                                    if (ext == "txt") {
+                                                                                                        //$(file.previewElement).find(".dz-image img").attr("src", "images/1487495563_txts.png");
+                                                                                                    }
+                                                                                                });
+                                                                                                this.on("sending", function (file, xhr, formData) {
+                                                                                                    formData.append("action", "value");
+                                                                                                });
+
+                                                                                                this.on('success', function (file, temp_file_PHP_response) {
+
+                                                                                                    var title = file.name,
+                                                                                                            content = temp_file_PHP_response,
+                                                                                                            toPassive = false,
+                                                                                                            toActive = false;
+
+                                                                                                    if ($("#title").val() != "" || $("#description").val() != "") {
+                                                                                                        window.location.hash = '#alert-both-input';
+                                                                                                        $('#alert-both-input').removeAttr('hidden');
+                                                                                                        //remove all file
+                                                                                                        this.removeAllFiles(true);
+                                                                                                    } else {
+                                                                                                        //Post to loading.php                        
+                                                                                                        toPassive = $("#toPassiveBox").is(':checked') ? "checked" : "unchecked";
+                                                                                                        toActive = $("#toActiveBox").is(':checked') ? "checked" : "unchecked";
+                                                                                                        $("#title2submit").val(title);
+                                                                                                        $("#content2submit").val(content);
+                                                                                                        $("#upload-type2submit").val("File");
+                                                                                                        $("#toPassive2submit").val(toPassive);
+                                                                                                        $("#toActive2submit").val(toActive);
+                                                                                                        $("#btn2submit").submit();
+                                                                                                    }
+                                                                                                });
+
+                                                                                                this.on('complete', function () {
+                                                                                                    console.log('completed');
+                                                                                                });
+
+                                                                                                this.on("queuecomplete", function (file) {
+                                                                                                    //$("#myForm").off('submit').submit();
+                                                                                                });
+                                                                                                this.on("maxfilesexceeded", function (file) {
+
+                                                                                                    //remove all file
+                                                                                                    this.removeAllFiles(true);
+
+                                                                                                    $('#mydiv').replaceWith('<div id="mydiv" class="alert alert-danger alert-dismissable fade in">\n\
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>\n\
                         <strong>The file cannot be add more than one file! Please remove all files and add only one.</strong></div>');
-                        $('#mydiv').show();
-                        this.removeFile(file);
-                    });
-                    this.on("sending", function (file, xhr, formData) {
-                        var eid = document.getElementById('eid').value;
-                        formData.append('eid', eid);
-                    });
-                    this.on('error', function (file, errorMessage) {
-                        if (errorMessage.indexOf('Error 404') !== -1) {
-                            var errorDisplay = document.querySelectorAll('[data-dz-errormessage]');
-                            errorDisplay[errorDisplay.length - 1].innerHTML = 'Error 404: The upload page was not found on the server';
-                        }
-                        if (errorMessage.indexOf('File is too big') !== -1) {
-                            //alert("File big size!");
-                            $('#mydiv').replaceWith('<div id="mydiv" class="alert alert-danger alert-dismissable fade in">\n\
+                                                                                                    $('#mydiv').show();
+                                                                                                    this.removeFile(file);
+                                                                                                });
+                                                                                                this.on("sending", function (file, xhr, formData) {
+                                                                                                    var eid = document.getElementById('eid').value;
+                                                                                                    formData.append('eid', eid);
+                                                                                                });
+                                                                                                this.on('error', function (file, errorMessage) {
+                                                                                                    if (errorMessage.indexOf('Error 404') !== -1) {
+                                                                                                        var errorDisplay = document.querySelectorAll('[data-dz-errormessage]');
+                                                                                                        errorDisplay[errorDisplay.length - 1].innerHTML = 'Error 404: The upload page was not found on the server';
+                                                                                                    }
+                                                                                                    if (errorMessage.indexOf('File is too big') !== -1) {
+                                                                                                        $('#mydiv').replaceWith('<div id="mydiv" class="alert alert-danger alert-dismissable fade in">\n\
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>\n\
                         <strong>The file is too big! Please choose any file with size smaller than or equal to 1MB only.</strong></div>');
-                            $('#mydiv').show();
-                            this.removeFile(file);
-                        }
-                    });
-                }
-            };
+                                                                                                        $('#mydiv').show();
+                                                                                                        this.removeFile(file);
+                                                                                                    }
+                                                                                                });
+                                                                                            }
+                                                                                        };
 
-            $(function () {
-                $("#title, #description").keypress(function (event) {
-                    var keyboard = event.which;
-                    // if ((keyboard == 32) || (48 <= keyboard && keyboard <= 57) || (65 <= keyboard && keyboard <= 90) || (97 <= keyboard && keyboard <= 122))
-                    if(32 <= keyboard && keyboard <= 127)
-                        return true;
-                    $('#alert-keyboard').removeAttr('hidden');
-                    return false;
-                });
-            });            
+                                                                                        $(function () {
+                                                                                            $("#title, #description").keypress(function (event) {
+                                                                                                var keyboard = event.which;
+                                                                                                if (32 <= keyboard && keyboard <= 127) {
+                                                                                                    return true;
+                                                                                                }
+                                                                                                $('#alert-keyboard').removeAttr('hidden');
+                                                                                                return false;
+                                                                                            });
+                                                                                        });
         </script>
     </body>
 </html>

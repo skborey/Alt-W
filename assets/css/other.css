@@ -1,0 +1,177 @@
+img.gal:hover {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+.shadow {
+    -webkit-filter: drop-shadow(8px 8px 10px black);
+    filter: drop-shadow(8px 8px 10px black);
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+}
+
+.alert.success {
+    background-color: #4CAF50;
+}
+
+.alert.info {
+    background-color: #2196F3;
+}
+
+.alert.warning {
+    background-color: #ff9800;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+a,
+u {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none !important;
+    font-size: 12px;
+}
+
+h1 {
+    margin-top: 20px;
+    display: flex;
+}
+
+h1:before,
+h1:after {
+    color: green;
+    content: '';
+    flex: 1;
+    border-bottom: groove 1px;
+    margin: auto 0.25em;
+    box-shadow: 0 -1px;
+}
+
+#note {
+    border-top-style: dotted;
+    border-right-style: solid;
+    border-bottom-style: dotted;
+    border-left-style: solid;
+    border-radius: 12px;
+}
+
+p.round2 {
+    border: 2px solid;
+    border-radius: 8px;
+}
+
+.tb3 {
+    border: 2px dashed #D1C7AC;
+    width: 432px;
+    height: 261px;
+}
+
+.tooltip {
+    width: 250px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 11px 0px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.tiles {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tile {
+    position: relative;
+    float: left;
+    width: 640px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform .5s ease-out;
+}
+
+.txt {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 10%;
+    left: 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 9px;
+    line-height: 12px;
+    text-align: center;
+    cursor: default;
+}
+
+.x {
+    font-size: 32px;
+    line-height: 32px;
+}

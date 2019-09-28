@@ -39,8 +39,10 @@
         $content = preg_replace('/\s+/', ' ', $content);
         $contents = explode(' ', $content);
         require './POS/file/vendor/autoload.php';
+
         use StanfordTagger\POSTagger;
-        $pos = new POSTagger();
+
+$pos = new POSTagger();
         $contentPos = $pos->tag($content);
         $contentPos = explode(" ", $contentPos);
         $_SESSION['numOfW'] = count($contentPos);
@@ -53,7 +55,7 @@
 //            $c = implode(' ', $c);
             if ($p == "V" || $p == "P") {
                 echo "&nbsp;" . $c . "<br>";
-            } 
+            }
         }
         echo "<br>";
         ?> 
