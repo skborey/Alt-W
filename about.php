@@ -131,7 +131,7 @@
                             <figcaption>
                                 <center>
                                     <h4>
-                                        <a href="https://www.facebook.com/sok.borey.3" target="_blank" style="font-size: 18px">
+                                        <a href="https://www.facebook.com/skborey.github.io" target="_blank" style="font-size: 18px">
                                             Mr. Borey Sok
                                         </a>Programmer 
                                     </h4> 
